@@ -14,6 +14,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bP-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--Greylight2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -121,8 +127,17 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bP-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
+
+    @media only screen and (max-width: $bP-medium) {
+      flex: 1;
+    }
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
@@ -165,6 +180,18 @@
     z-index: 10;
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bP-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bP-small) {
+      flex-direction: column;
+      align-items: center;
+      //justify-content: center;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -172,6 +199,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bP-small) {
+      margin: 0;
+      margin-bottom: 0.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -180,6 +214,10 @@
   color: var(--Greylight4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bP-medium) {
+    display: none;
+  }
 }
 //////////////////////////////////////////////////////////
 //// hotel section
@@ -204,6 +242,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bP-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -237,15 +280,27 @@
     align-items: center;
     justify-content: center;
     padding: 0 2rem;
+
+    @media only screen and (max-width: $bP-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bP-small) {
+      font-size: 1.8rem;
+    }
   }
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bP-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -278,16 +333,19 @@
       margin-right: 0.7rem;
 
       //older browsers
-      // background-image: url(../img/chevron-thin-right.svg);
-      // background-size: cover;
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover;
 
       //newer browsers --masks
-      background-color: var(--color-primary);
-      -webkit-mask-image: url(../img/chevron-thin-right.svg);
-      -webkit-mask-size: cover;
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
 
-      mask-image: url(../img/chevron-thin-right.svg);
-      mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none;
+      }
     }
   }
 }
@@ -302,6 +360,7 @@
 
   &__friends {
     margin-left: auto;
+    display: flex;
   }
   &__photo {
     width: 4rem;
@@ -311,7 +370,7 @@
     box-sizing: content-box;
 
     &:not(:last-of-type) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -326,6 +385,11 @@
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: $bP-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     z-index: 1;
@@ -381,6 +445,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bP-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     text-transform: uppercase;
