@@ -187,8 +187,6 @@
 //// gallery
 .gallery {
   display: flex;
-  &__item {
-  }
 
   &__photo {
     width: 100%;
@@ -301,8 +299,6 @@
   color: var(--Greydark3);
   display: flex;
   align-items: center;
-  &__count {
-  }
 
   &__friends {
     margin-left: auto;
@@ -320,6 +316,130 @@
   }
 }
 
+///////////////////////////////////////////////
+/// Reviews
+.review {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    z-index: 1;
+    position: relative;
+  }
+
+  &__user {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+  }
+
+  &__user-date {
+    font-size: 1.1rem;
+    color: var(--Greydark3);
+  }
+  &__rating {
+    margin-left: auto;
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    font-weight: 300;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    left: 0rem;
+    top: -1rem;
+    font-size: 20rem;
+    color: var(--Greylight2);
+    font-family: sans-serif;
+    line-height: 1;
+    z-index: 1;
+    opacity: 0.9;
+  }
+}
+
+////////////////////////////////////////
+//// call to action
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 100px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  & > * {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+  }
+
+  &__visible {
+    display: inline-block;
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    display: inline-block;
+    padding: 2rem 0;
+    position: absolute;
+    top: -100%;
+    left: 0;
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 0.8s infinite;
+  }
+}
+
 ///////// button inline
 .btn-inline {
   border: none;
@@ -327,12 +447,23 @@
   color: var(--color-primary);
   border-bottom: 1px solid currentColor;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.5s;
   display: inline-block;
   padding-bottom: 2px;
   background-color: transparent;
+  align-self: center;
+
+  span {
+    margin-left: 3px;
+    transition: margin-left 0.3s;
+  }
+
   &:hover {
     color: var(--Greydark1);
+
+    span {
+      margin-left: 8px;
+    }
   }
   &:focus {
     outline: none;
